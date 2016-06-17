@@ -11,7 +11,7 @@ before_script:
 install:
   - "pip install -r requirements.txt"
 script:
-  - ./antlia/manage.py test antlia
+  - ./manage.py test
 after_success:
   - coveralls
 
@@ -22,7 +22,7 @@ deploy:
   on:
     repo: geislor/antlia
   run:
-    - "./antlia/manage.py migrate"
+    - "./manage.py migrate"
 
 notifications:
   email: false
