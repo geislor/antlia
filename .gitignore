@@ -1,0 +1,6 @@
+venv
+*.pyc
+staticfiles
+*.idea
+*.idea/*
+.idea
