@@ -19,6 +19,9 @@ deploy:
   app: antlia-geislor
   on:
     repo: geislor/antlia
+run:
+    - "python antlia-geislor/manage.py syncdb"
+    - "python antlia-geislor/manage.py migrate"
 notifications:
   email: false
 sudo: false
