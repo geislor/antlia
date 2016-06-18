@@ -1,36 +1,26 @@
 language: python
 services:
-  - postgresql
-  - redis-server
+- postgresql
+- redis-server
 python:
-  - "3.5.1"
+- 3.5.1
 before_script:
-#- export DATABASE_URL=postgres://postgres@localhost/{{ cookiecutter.app_name }}
 - export DJANGO_SECRET=`openssl rand -base64 32`
-#- psql -c 'CREATE DATABASE "{{ cookiecutter.app_name }}";' -U postgres
 install:
-  - "pip install -r requirements.txt"
+- pip install -r requirements.txt
 script:
-  - ./manage.py test
+- "./manage.py test"
 after_success:
-  - coveralls
-
+- coveralls
 deploy:
   provider: heroku
-  app:
-    master: antlia-geislor
+  api_key:
+    secure: fnVUS18R0CA7KwaXBquXmRaHegjzLIXqSZob9oZ7NB9VQu2dEL7uci5Jo4wdKH9tUOv0C8OyDj1ziH9Y9O5a4CI5Yyd4IKC12XtL4w9w6Nmo60ejK7nSEX+DausBkrtptEgSKkUTbT9pG2toGSCAqi3BkyUaflmVcapdPZObIQCBClrve6U148pOuKZTjuIWK8p6nB43bG6h25IYCsPb7eywiXrJKs8mhFhC00btnMVuQ0++vpKci3Fy1YlrozW/lQRa/D9Ww8EEacgaCULn4L8eYWl9bci3DtZEd4WVhHw09ngcE7Ew3HphTLBDqIj3wvHlEPVZIbrSn2KmfuwuGb5KcTkrc2xz7c2xmxsIRdTYGRObt5YvtviNLNcr8mRRfkEIBAbfvbOzCpjEzD5AQTzodMhgQ2p9lLRA0hsBJ9KyiZ6nocAG/qgcE35m+zWMz7GfTIAzreHbL2BPOJQqN57lcYKjFGm1VdEGaTM19NYVqG39flz8pHtqAN3+/LYwttwBS1o4O52gR4+1R0tM5TJzmbA5/+q9FFa/Y/MUHGe0LdEEuz62OEb4v2a/tTfrdRig5DsY0Z3cT4OwfcatxWGfg8/4v+n95TP03JUq075c7YkFtUOwt4I/WkvG9rR8qfMq2K0f3pfDmy/O5yFl6Lx3V9LncLWNYnUunIsCJes=
+  app: antlia
   on:
     repo: geislor/antlia
-  run:
-    - "./manage.py migrate"
-
 notifications:
   email: false
-
-# This reportedly works around an issue downloading packages from pypi on
-# travis. Consider removing this after the underlying issue is fixed.
-# https://github.com/travis-ci/travis-ci/issues/2389
 sudo: false
-
 matrix:
   fast_finish: true
