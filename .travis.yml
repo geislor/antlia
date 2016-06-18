@@ -23,7 +23,14 @@ run:
     - "python antlia-geislor/manage.py syncdb"
     - "python antlia-geislor/manage.py migrate"
 notifications:
-  email: false
+  email:
+    recipients:
+      - geislor@gmail.com
+#    on_success: [always|never|change] # default: change
+#    on_failure: [always|never|change] # default: always
+
+  slack:
+    on_success: always
 sudo: false
 matrix:
   fast_finish: true
