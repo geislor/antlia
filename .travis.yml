@@ -29,7 +29,7 @@ notifications:
 #    on_success: [always|never|change] # default: change
 #    on_failure: [always|never|change] # default: always
 
-  slack:
+  slack: antlia:yi0MtfE2vi8JWOlH20w7SN61
     on_success: always
 sudo: false
 matrix:
