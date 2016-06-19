@@ -8,6 +8,7 @@ before_script:
 - export DJANGO_SECRET=`openssl rand -base64 32`
 install:
 - pip install -r requirements.txt
+- pip install coveralls
 script:
 - "./manage.py test"
 after_success:
