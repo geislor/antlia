@@ -5,3 +5,8 @@ psycopg2==2.6.1
 whitenoise==3.2
 coverage==4.1
 sphinx
+
+# REST
+djangorestframework
+markdown
+django-filter

@@ -23,6 +23,7 @@ deploy:
 run:
     - "python antlia-geislor/manage.py syncdb"
     - "python antlia-geislor/manage.py migrate"
+    - "python antlia-geislor/manage.py loaddata dev-users || true"
 notifications:
   email:
     recipients:
