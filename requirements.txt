@@ -7,6 +7,6 @@ coverage==4.1
 sphinx==1.4.4
 
 # REST
-djangorestframework
+djangorestframework==3.3.3
 markdown==2.6.6
 django-filter==0.13.0
